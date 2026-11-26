@@ -6,9 +6,9 @@ export default defineConfig({
     rollupOptions: {
       input: {
         home: resolve(import.meta.dirname, 'index.html'),
-        warehouse: resolve(import.meta.dirname, 'DMM-Demo/index.html'),
-        maze: resolve(import.meta.dirname, 'DMM-Demo/maze.html'),
-        epibt: resolve(import.meta.dirname, 'EPIBT-Demo/index.html'),
+        warehouse: resolve(import.meta.dirname, 'DMM/index.html'),
+        maze: resolve(import.meta.dirname, 'DMM/maze.html'),
+        epibt: resolve(import.meta.dirname, 'EPIBT/index.html'),
       },
     },
   },

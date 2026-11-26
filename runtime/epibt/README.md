@@ -1,6 +1,6 @@
 # EPIBT warehouse
 
-Open **EPIBT-Demo** from the demo navigation or load `EPIBT-Demo/` directly.
+Open **EPIBT-Demo** from the demo navigation or load `EPIBT/` directly.
 The page runs the rotational planner in a dedicated browser worker. EPIBT
 selects an operation and executes its first primitive each tick. Use
 **Planning horizon** to switch between 3, 4 and 5 actions. The new planner

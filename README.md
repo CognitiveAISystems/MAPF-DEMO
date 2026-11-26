@@ -1,7 +1,7 @@
 # MAPF demos
 
-- [DMM-Demo](https://cognitiveaisystems.github.io/MAPF-DEMO/DMM-Demo/) includes the interactive warehouse and the DMM communication maze.
-- [EPIBT-Demo](https://cognitiveaisystems.github.io/MAPF-DEMO/EPIBT-Demo/) shows warehouse routing with oriented agents.
+- [DMM-Demo](https://cognitiveaisystems.github.io/MAPF-DEMO/DMM) includes the interactive warehouse and the DMM communication maze.
+- [EPIBT-Demo](https://cognitiveaisystems.github.io/MAPF-DEMO/EPIBT) shows warehouse routing with oriented agents.
 
 A browser-based 2.5D demonstration of the trained FastDMM policy. The default
 runtime is fully self-contained: ONNX Runtime Web executes the 0.8M policy with
@@ -97,7 +97,7 @@ the compatibility fallback.
 
 ## Communication maze
 
-Open `DMM-Demo/maze.html` directly or use **DMM communication** in the warehouse
+Open `DMM/maze.html` directly or use **DMM communication** in the warehouse
 header to switch views in the current tab. The mini-maze
 uses the same observation tokenizer, FastDMM weights, and PIBT shield
 as the browser warehouse. Its dedicated ONNX graph exposes the raw accumulated
