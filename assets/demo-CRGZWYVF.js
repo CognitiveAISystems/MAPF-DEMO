@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/main-D2ggSpPI.js","assets/thinEngine.pure-DIEWnOrY.js","assets/engineStore-Bn2tApal.js","assets/logger-CuBYPcDK.js","assets/shaderStore-D-XQlhUT.js","assets/precisionDate-CcRlxfnG.js","assets/performanceConfigurator-UtxC_Odd.js","assets/internalTexture-Dlz1Grf0.js","assets/i18n-CSmcYFqR.js","assets/i18n-DUVMqsd7.css","assets/tools.pure-BMHvHWM0.js","assets/typeStore-BGi7uhG_.js","assets/decorators-BqhniYe3.js","assets/math.color.pure-1DMve2CK.js","assets/math.scalar.functions-lnL7TJ7T.js","assets/baseTexture.pure-DUnCnCDe.js","assets/effectRenderer.pure-B3Q9gIh9.js","assets/demo-view-nA9c1WnU.js","assets/maze-Bu3irmjZ.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/main-B_ZM8ane.js","assets/thinEngine.pure-DIEWnOrY.js","assets/engineStore-Bn2tApal.js","assets/logger-CuBYPcDK.js","assets/shaderStore-D-XQlhUT.js","assets/precisionDate-CcRlxfnG.js","assets/performanceConfigurator-UtxC_Odd.js","assets/internalTexture-Dlz1Grf0.js","assets/i18n-CSmcYFqR.js","assets/i18n-DUVMqsd7.css","assets/tools.pure-BMHvHWM0.js","assets/typeStore-BGi7uhG_.js","assets/decorators-BqhniYe3.js","assets/math.color.pure-1DMve2CK.js","assets/math.scalar.functions-lnL7TJ7T.js","assets/baseTexture.pure-DUnCnCDe.js","assets/effectRenderer.pure-CXyjPGEM.js","assets/demo-view-nA9c1WnU.js","assets/maze-Bu3irmjZ.js"])))=>i.map(i=>d[i]);
 import{c as e,o as t,s as n}from"./i18n-CSmcYFqR.js";var r=`<main id="app" data-demo-panel="warehouse">
   <canvas id="scene" aria-label="3D MAPF simulation"></canvas>
 
@@ -19,7 +19,7 @@ import{c as e,o as t,s as n}from"./i18n-CSmcYFqR.js";var r=`<main id="app" data-
     <nav class="demo-tabs" aria-label="Demo views">
       <a href="./" data-demo-link="warehouse">Interactive warehouse</a>
       <a href="./maze.html" data-demo-link="maze">DMM communication</a>
-      <a href="../EPIBT-Demo/">EPIBT-Demo</a>
+      <a href="../EPIBT/">EPIBT-Demo</a>
     </nav>
     <div class="header-actions">
       <div class="demo-source connection"><span id="source-label">Demo source</span></div>
@@ -33,9 +33,9 @@ import{c as e,o as t,s as n}from"./i18n-CSmcYFqR.js";var r=`<main id="app" data-
               <img src="../qr/method.svg" alt="QR code for the DMM implementation" width="128" height="128" />
               <span>Code</span><small>github.com/CognitiveAISystems/DMM</small>
             </a>
-            <a href="https://cognitiveaisystems.github.io/MAPF-DEMO/DMM-Demo/" target="_blank" rel="noopener noreferrer" aria-label="Open the live demo">
+            <a href="https://cognitiveaisystems.github.io/MAPF-DEMO/DMM" target="_blank" rel="noopener noreferrer" aria-label="Open the live demo">
               <img src="../qr/demo.svg" alt="QR code for the live demo" width="128" height="128" />
-              <span>Live demo</span><small>MAPF-DEMO/DMM-Demo</small>
+              <span>Live demo</span><small>MAPF-DEMO/DMM</small>
             </a>
             <a href="https://arxiv.org/abs/2609.32019" target="_blank" rel="noopener noreferrer" aria-label="Open the paper">
               <img src="../qr/paper.svg" alt="QR code for the paper" width="128" height="128" />
@@ -209,7 +209,7 @@ import{c as e,o as t,s as n}from"./i18n-CSmcYFqR.js";var r=`<main id="app" data-
     <nav class="demo-tabs" aria-label="Demo views">
       <a href="./" data-demo-link="warehouse">Interactive warehouse</a>
       <a href="./maze.html" data-demo-link="maze">DMM communication</a>
-      <a href="../EPIBT-Demo/">EPIBT-Demo</a>
+      <a href="../EPIBT/">EPIBT-Demo</a>
     </nav>
     <div class="header-actions">
       <div id="maze-source" class="demo-source"><span>Loading model</span></div>
@@ -223,9 +223,9 @@ import{c as e,o as t,s as n}from"./i18n-CSmcYFqR.js";var r=`<main id="app" data-
               <img src="../qr/method.svg" alt="QR code for the DMM implementation" width="128" height="128" />
               <span>Code</span><small>github.com/CognitiveAISystems/DMM</small>
             </a>
-            <a href="https://cognitiveaisystems.github.io/MAPF-DEMO/DMM-Demo/maze.html" target="_blank" rel="noopener noreferrer" aria-label="Open the live demo">
+            <a href="https://cognitiveaisystems.github.io/MAPF-DEMO/DMM/maze.html" target="_blank" rel="noopener noreferrer" aria-label="Open the live demo">
               <img src="../qr/maze-demo.svg" alt="QR code for the live demo" width="128" height="128" />
-              <span>Live demo</span><small>DMM-Demo/maze.html</small>
+              <span>Live demo</span><small>MAPF-DEMO/DMM/maze.html</small>
             </a>
             <a href="https://arxiv.org/abs/2609.32019" target="_blank" rel="noopener noreferrer" aria-label="Open the paper">
               <img src="../qr/paper.svg" alt="QR code for the paper" width="128" height="128" />
@@ -287,4 +287,4 @@ import{c as e,o as t,s as n}from"./i18n-CSmcYFqR.js";var r=`<main id="app" data-
     <button id="maze-edit" class="maze-reset-button" type="button">Edit maze</button>
   </div>
 </div>
-`,a=`modulepreload`,o=function(e){return`/MAPF-DEMO/`+e},s={},c=function(e,t,n){let r=Promise.resolve();if(t&&t.length>0){let e=document.getElementsByTagName(`link`),i=document.querySelector(`meta[property=csp-nonce]`),c=i?.nonce||i?.getAttribute(`nonce`);function l(e){return Promise.all(e.map(e=>Promise.resolve(e).then(e=>({status:`fulfilled`,value:e}),e=>({status:`rejected`,reason:e}))))}function u(e){return import.meta.resolve?import.meta.resolve(e):new URL(e,import.meta.url).href}r=l(t.map(t=>{if(t=o(t,n),t=u(t),t in s)return;s[t]=!0;let r=t.endsWith(`.css`);for(let n=e.length-1;n>=0;n--){let i=e[n];if(i.href===t&&(!r||i.rel===`stylesheet`))return}let i=document.createElement(`link`);if(i.rel=r?`stylesheet`:a,r||(i.as=`script`),i.crossOrigin=``,i.href=t,c&&i.setAttribute(`nonce`,c),document.head.appendChild(i),r)return new Promise((e,n)=>{i.addEventListener(`load`,e),i.addEventListener(`error`,()=>n(Error(`Unable to preload CSS for ${t}`)))})}).filter(e=>e!==void 0))}function i(e){let t=new Event(`vite:preloadError`,{cancelable:!0});if(t.payload=e,window.dispatchEvent(t),!t.defaultPrevented)throw e}return r.then(t=>{for(let e of t||[])e.status===`rejected`&&i(e.reason);return e().catch(i)})},l=document.querySelector(`#demo-views`);l.innerHTML=r+i;var u={warehouse:l.querySelector(`[data-demo-panel="warehouse"]`),maze:l.querySelector(`[data-demo-panel="maze"]`)},d=l.querySelectorAll(`a[data-demo-link]`),f={warehouse:`Interactive warehouse`,maze:`DMM communication`},p=document.body.dataset.demoView===`maze`?`maze`:`warehouse`;n();function m(){document.title=`${e(f[p])} · DMM-Demo`}function h(e,t=!1){p=e,document.body.dataset.demoView=e,u.warehouse.hidden=e!==`warehouse`,u.maze.hidden=e!==`maze`;for(let t of d)t.dataset.demoLink===e?t.setAttribute(`aria-current`,`page`):t.removeAttribute(`aria-current`);m(),window.dispatchEvent(new Event(`demo:viewchange`)),t&&u[e].querySelector(`a[aria-current="page"]`)?.focus({preventScroll:!0})}l.addEventListener(`click`,e=>{if(e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;let t=e.target instanceof Element?e.target.closest(`a[data-demo-link]`):null;if(!t)return;e.preventDefault();let n=t.dataset.demoLink;n!==p&&(history.pushState(null,``,t.href),h(n,!0))}),window.addEventListener(`popstate`,()=>{let e=new URL(location.href);t()===`ru`?e.searchParams.set(`lang`,`ru`):e.searchParams.delete(`lang`),e.href!==location.href&&history.replaceState(history.state,``,e),h(e.pathname.endsWith(`/maze.html`)?`maze`:`warehouse`)}),window.addEventListener(`demo:languagechange`,m),h(p),c(()=>import(`./main-D2ggSpPI.js`).then(e=>e.t),__vite__mapDeps([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17])),c(()=>import(`./maze-Bu3irmjZ.js`),__vite__mapDeps([18,8,9,17]));export{c as t};
+`,a=`modulepreload`,o=function(e){return`/MAPF-DEMO/`+e},s={},c=function(e,t,n){let r=Promise.resolve();if(t&&t.length>0){let e=document.getElementsByTagName(`link`),i=document.querySelector(`meta[property=csp-nonce]`),c=i?.nonce||i?.getAttribute(`nonce`);function l(e){return Promise.all(e.map(e=>Promise.resolve(e).then(e=>({status:`fulfilled`,value:e}),e=>({status:`rejected`,reason:e}))))}function u(e){return import.meta.resolve?import.meta.resolve(e):new URL(e,import.meta.url).href}r=l(t.map(t=>{if(t=o(t,n),t=u(t),t in s)return;s[t]=!0;let r=t.endsWith(`.css`);for(let n=e.length-1;n>=0;n--){let i=e[n];if(i.href===t&&(!r||i.rel===`stylesheet`))return}let i=document.createElement(`link`);if(i.rel=r?`stylesheet`:a,r||(i.as=`script`),i.crossOrigin=``,i.href=t,c&&i.setAttribute(`nonce`,c),document.head.appendChild(i),r)return new Promise((e,n)=>{i.addEventListener(`load`,e),i.addEventListener(`error`,()=>n(Error(`Unable to preload CSS for ${t}`)))})}).filter(e=>e!==void 0))}function i(e){let t=new Event(`vite:preloadError`,{cancelable:!0});if(t.payload=e,window.dispatchEvent(t),!t.defaultPrevented)throw e}return r.then(t=>{for(let e of t||[])e.status===`rejected`&&i(e.reason);return e().catch(i)})},l=document.querySelector(`#demo-views`);l.innerHTML=r+i;var u={warehouse:l.querySelector(`[data-demo-panel="warehouse"]`),maze:l.querySelector(`[data-demo-panel="maze"]`)},d=l.querySelectorAll(`a[data-demo-link]`),f={warehouse:`Interactive warehouse`,maze:`DMM communication`},p=document.body.dataset.demoView===`maze`?`maze`:`warehouse`;n();function m(){document.title=`${e(f[p])} · DMM-Demo`}function h(e,t=!1){p=e,document.body.dataset.demoView=e,u.warehouse.hidden=e!==`warehouse`,u.maze.hidden=e!==`maze`;for(let t of d)t.dataset.demoLink===e?t.setAttribute(`aria-current`,`page`):t.removeAttribute(`aria-current`);m(),window.dispatchEvent(new Event(`demo:viewchange`)),t&&u[e].querySelector(`a[aria-current="page"]`)?.focus({preventScroll:!0})}l.addEventListener(`click`,e=>{if(e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;let t=e.target instanceof Element?e.target.closest(`a[data-demo-link]`):null;if(!t)return;e.preventDefault();let n=t.dataset.demoLink;n!==p&&(history.pushState(null,``,t.href),h(n,!0))}),window.addEventListener(`popstate`,()=>{let e=new URL(location.href);t()===`ru`?e.searchParams.set(`lang`,`ru`):e.searchParams.delete(`lang`),e.href!==location.href&&history.replaceState(history.state,``,e),h(e.pathname.endsWith(`/maze.html`)?`maze`:`warehouse`)}),window.addEventListener(`demo:languagechange`,m),h(p),c(()=>import(`./main-B_ZM8ane.js`).then(e=>e.t),__vite__mapDeps([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17])),c(()=>import(`./maze-Bu3irmjZ.js`),__vite__mapDeps([18,8,9,17]));export{c as t};
