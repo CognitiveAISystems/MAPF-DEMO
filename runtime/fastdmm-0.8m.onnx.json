@@ -1,0 +1,57 @@
+{
+  "schema": "fastdmm-browser-policy/v2",
+  "architecture": "FastDMM-0.8M",
+  "checkpoint": "fastdmm_grpo_stage2_step12800.pt",
+  "checkpoint_sha256": "c737bd43d12c7847582e433b1495cb7392d38491d36ac45b1dcf958a32c6f6d5",
+  "checkpoint_step": 12800,
+  "agent_slots": 100,
+  "inputs": [
+    {
+      "name": "observations",
+      "dtype": "int64",
+      "shape": [
+        1,
+        100,
+        256
+      ]
+    },
+    {
+      "name": "chat",
+      "dtype": "int64",
+      "shape": [
+        1,
+        100,
+        13
+      ]
+    },
+    {
+      "name": "neighbor_padding",
+      "dtype": "bool",
+      "shape": [
+        1,
+        100,
+        13
+      ]
+    }
+  ],
+  "output": {
+    "name": "action_probabilities",
+    "dtype": "float32",
+    "shape": [
+      100,
+      5
+    ]
+  },
+  "opset": 20,
+  "parameter_count": 763296,
+  "onnx_size_bytes": 4277603,
+  "onnx_sha256": "2448a213005136448d407a7d0c5328ceee45cd6981b9d5d3872f101df769b44d",
+  "validation": {
+    "provider": "CPUExecutionProvider",
+    "max_abs_error": 0.0,
+    "action_agreement": 1.0,
+    "max_probability_sum_error": 0.0,
+    "explicit_attention_max_abs_error": 0.0,
+    "explicit_attention_action_agreement": 1.0
+  }
+}

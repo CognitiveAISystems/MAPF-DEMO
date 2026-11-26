@@ -1,0 +1,1 @@
+function e(e,t){let n,r=()=>{let r=document.body.dataset.demoView===e&&!document.hidden;r!==n&&(n=r,t(r))};window.addEventListener(`demo:viewchange`,r),document.addEventListener(`visibilitychange`,r),r()}export{e as t};
