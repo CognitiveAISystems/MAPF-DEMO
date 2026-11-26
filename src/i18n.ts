@@ -3,6 +3,9 @@ export type Language = 'en' | 'ru';
 const RU: Record<string, string> = {
   'Demo views': 'Разделы демо',
   'Interactive warehouse': 'Интерактивный склад',
+  'Warehouse robot coordination': 'Координация роботов на складе',
+  'Robot communication maze': 'Коммуникация роботов в лабиринте',
+  'Warehouse routing with turns': 'Маршруты с учётом поворотов',
   'Warehouse with orientations': 'Склад с ориентациями',
   'Warehouse map': 'Карта склада',
   'Warehouse map with oriented agents': 'Карта склада с ориентациями агентов',

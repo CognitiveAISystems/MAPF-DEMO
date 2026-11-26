@@ -1,7 +1,7 @@
 # MAPF demos
 
-- [DMM-Demo](https://cognitiveaisystems.github.io/MAPF-DEMO/DMM) includes the interactive warehouse and the DMM communication maze.
-- [EPIBT-Demo](https://cognitiveaisystems.github.io/MAPF-DEMO/EPIBT) shows warehouse routing with oriented agents.
+- [Warehouse robot coordination](https://cognitiveaisystems.github.io/MAPF-DEMO/DMM) includes the interactive warehouse and the DMM communication maze.
+- [Warehouse routing with turns](https://cognitiveaisystems.github.io/MAPF-DEMO/EPIBT) shows how EPIBT routes robots with an orientation.
 
 A browser-based 2.5D demonstration of the trained FastDMM policy. The default
 runtime is fully self-contained: ONNX Runtime Web executes the 0.8M policy with

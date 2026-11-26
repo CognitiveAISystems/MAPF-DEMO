@@ -21,7 +21,7 @@
 }
 
 .demo-brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
-.demo-home { flex: none; color: #e4f8ff; font-size: 15px; font-weight: 700; text-decoration: none; }
+.demo-home { min-width: 0; color: #e4f8ff; font-size: 15px; font-weight: 700; line-height: 1.2; overflow-wrap: anywhere; text-decoration: none; }
 .demo-home:hover { color: #5ce1ff; }
 .demo-source {
   display: -webkit-box;

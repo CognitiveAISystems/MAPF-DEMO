@@ -15,12 +15,12 @@ const panels = {
   maze: host.querySelector<HTMLElement>('[data-demo-panel="maze"]')!,
 };
 const links = host.querySelectorAll<HTMLAnchorElement>('a[data-demo-link]');
-const titles = { warehouse: 'Interactive warehouse', maze: 'DMM communication' };
+const titles = { warehouse: 'Warehouse robot coordination', maze: 'Robot communication maze' };
 let currentView: DemoView = document.body.dataset.demoView === 'maze' ? 'maze' : 'warehouse';
 initI18n();
 
 function renderTitle(): void {
-  document.title = `${tr(titles[currentView])} · DMM-Demo`;
+  document.title = tr(titles[currentView]);
 }
 
 function renderView(view: DemoView, focusTab = false): void {
