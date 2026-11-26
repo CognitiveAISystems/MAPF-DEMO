@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#050b13" />
     <title>EPIBT-Demo</title>
-    <script type="module" crossorigin src="/MAPF-DEMO/assets/epibt-DCLW12RX.js"></script>
-    <link rel="modulepreload" crossorigin href="/MAPF-DEMO/assets/i18n-CSmcYFqR.js">
+    <script type="module" crossorigin src="/MAPF-DEMO/assets/epibt-DJMmSI7G.js"></script>
+    <link rel="modulepreload" crossorigin href="/MAPF-DEMO/assets/i18n-fT7aWr30.js">
     <link rel="stylesheet" crossorigin href="/MAPF-DEMO/assets/i18n-DUVMqsd7.css">
-    <link rel="stylesheet" crossorigin href="/MAPF-DEMO/assets/epibt-NuT5MKDn.css">
+    <link rel="stylesheet" crossorigin href="/MAPF-DEMO/assets/epibt-D9CzA-5B.css">
   </head>
   <body>
     <div class="epibt-app">
@@ -62,7 +62,12 @@
                   <button id="epibt-length-5" class="epibt-button" type="button" aria-pressed="false" disabled>5</button>
                 </div>
               </div>
-              <button id="epibt-open-editor" class="epibt-button" type="button" aria-controls="epibt-editor">Edit map</button>
+              <div id="epibt-map-actions" class="epibt-map-actions">
+                <select id="epibt-preset" class="epibt-button" aria-label="Warehouse preset">
+                  <option value="" disabled>Custom layout</option>
+                </select>
+                <button id="epibt-open-editor" class="epibt-button" type="button" aria-controls="epibt-editor">Edit map</button>
+              </div>
             </div>
           </div>
           <p id="epibt-error" class="epibt-error" role="alert" hidden></p>
@@ -97,22 +102,17 @@
                   <button id="epibt-next-robot" class="epibt-button" type="button" aria-label="Next agent" title="Next agent" disabled>›</button>
                 </div>
               </div>
-              <span id="epibt-stage">—</span>
             </div>
             <dl class="epibt-facts">
               <div><dt>Position</dt><dd id="epibt-position">—</dd></div>
               <div><dt>Heading</dt><dd id="epibt-heading">—</dd></div>
-              <div><dt>Task</dt><dd id="epibt-task">—</dd></div>
-              <div><dt>Current goal</dt><dd id="epibt-goal">—</dd></div>
-              <div><dt>Last action</dt><dd id="epibt-action">—</dd></div>
+              <div><dt>Pickup</dt><dd id="epibt-task-pickup">—</dd></div>
+              <div><dt>Delivery</dt><dd id="epibt-task-delivery">—</dd></div>
+              <div class="epibt-last-action"><dt>Last action</dt><dd id="epibt-action">—</dd></div>
               <div><dt>Planning priority</dt><dd id="epibt-priority">—</dd></div>
             </dl>
-            <div class="epibt-operation">
-              <h3>Last EPIBT operation</h3>
-              <ol id="epibt-operation" aria-label="Last EPIBT operation"></ol>
-            </div>
             <dl class="epibt-robot-totals">
-              <div><dt>Cells travelled</dt><dd id="epibt-distance">—</dd></div>
+              <div><dt>Moves</dt><dd id="epibt-distance">—</dd></div>
               <div><dt>Turns</dt><dd id="epibt-turns">—</dd></div>
               <div><dt>Wait ticks</dt><dd id="epibt-waits">—</dd></div>
               <div><dt>Completed deliveries</dt><dd id="epibt-agent-completed">—</dd></div>
@@ -136,8 +136,6 @@
             <button id="epibt-undo" class="epibt-button" type="button">↶ Undo edit</button>
           </div>
           <div class="epibt-editor-config">
-            <label for="epibt-preset">Warehouse preset</label>
-            <select id="epibt-preset"><option value="" disabled>Custom layout</option></select>
             <label for="epibt-robot-count">Number of agents</label>
             <input id="epibt-robot-count" type="number" min="1" step="1" required />
             <div class="epibt-editor-files">
