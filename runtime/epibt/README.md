@@ -7,9 +7,9 @@ selects an operation and executes its first primitive each tick. Use
 takes over at the same tick with the same robot poses, tasks and counters.
 The next tick generates a plan at the new length. A robot can move one
 cell forward, turn 90 degrees right or left in its cell, or wait. The
-inspector shows the executed primitive and the full
-operation selected in that tick. The dashed line shows the remaining moves of
-that operation. EPIBT may revise them at the next tick.
+inspector shows the pickup and delivery coordinates and the last executed
+action. The dashed line on the map shows the remaining moves of the selected
+operation. EPIBT may revise them at the next tick.
 
 The playback control sets a target of 1 to 1,000 steps per second. The
 slider increments are 1 up to 10, 10 up to 100, and 100 up to 1,000.
@@ -35,11 +35,16 @@ measures time spent in the planner call.
 
 ## Configuration files
 
-Open **Edit map** to choose a preset or paint individual cells. The presets
-include rack rows, a central junction, single-cell aisles, staggered gates,
-switchback lanes with passing bays, and nested loops. Import and export work on the
-editor draft. **Apply & restart** starts the draft at tick zero and immediately
-runs the simulation.
+Choose a preset next to **Edit map**. The **Kiva warehouse** preset uses the
+obstacle, pickup endpoint and workstation positions of the GGO
+[warehouse-33-36 benchmark](https://github.com/lunjohnzhang/ggo_public/blob/9e3613e65cafcad1c552a1b647d0fbaa09e7cfa3/maps/warehouse/human/kiva_large_w_mode.json).
+The demo adds an outer wall and runs its own pickup and delivery tasks with
+200 agents.
+
+Open **Edit map** to paint individual cells or import and export the editor
+draft. **Apply & restart** starts the draft at tick zero and immediately runs
+the simulation. The worker shuffles the pickup and delivery bays separately
+and assigns each bay once per pass through its list.
 The same map and robot count produce the same starts, initial orientations
 and sequence of pickup and delivery pairs.
 

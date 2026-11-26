@@ -4,7 +4,7 @@ import { fmt, formatCount, formatFixed, formatNumber, initI18n, tr } from '../i1
 import type { WarehouseConfig } from './config';
 import { LayoutEditor } from './editor';
 import { WarehouseMap } from './map';
-import { ACTIONS, ACTION_CODES, OPERATION_LENGTHS, type Action, type OperationLength, type Snapshot, type WorkerCommand, type WorkerReply } from './model';
+import { ACTIONS, OPERATION_LENGTHS, type Action, type OperationLength, type Snapshot, type WorkerCommand, type WorkerReply } from './model';
 import { WAREHOUSE_PRESETS } from './presets';
 
 function element<T extends HTMLElement = HTMLElement>(id: string): T {
@@ -17,6 +17,7 @@ const playButton = element<HTMLButtonElement>('epibt-play');
 const stepButton = element<HTMLButtonElement>('epibt-next');
 const speed = element<HTMLInputElement>('epibt-rate');
 const editButton = element<HTMLButtonElement>('epibt-open-editor');
+const presetSelect = element<HTMLSelectElement>('epibt-preset');
 const previousRobot = element<HTMLButtonElement>('epibt-prev-robot');
 const nextRobot = element<HTMLButtonElement>('epibt-next-robot');
 const fleetScroll = element('epibt-fleet-scroll');
@@ -24,8 +25,6 @@ const lengthButtons = OPERATION_LENGTHS.map(length => ({
   length, button: element<HTMLButtonElement>(`epibt-length-${length}`),
 }));
 const error = element('epibt-error');
-const operation = element('epibt-operation');
-const planActionLabels = ['Forward', 'Right', 'Left', 'Wait'] as const;
 const playbackRates = [
   1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
   20, 30, 40, 50, 60, 70, 80, 90, 100,
@@ -99,30 +98,16 @@ function renderInspector(): void {
   const agent = snapshot?.agents[selected];
   previousRobot.disabled = nextRobot.disabled = !agent || config.agentCount <= 1;
   setText('epibt-selected', fmt('Agent {id}', { id: String(selected + 1).padStart(3, '0') }));
-  setText('epibt-stage', agent ? tr(agent.stage) : '—');
   setText('epibt-position', agent ? coordinates(agent.cell) : '—');
   setText('epibt-heading', agent ? `${headingGlyphs[agent.direction]} ${tr(headingNames[agent.direction])}` : '—');
-  setText('epibt-task', agent ? formatNumber(agent.task) : '—');
-  setText('epibt-goal', agent ? coordinates(agent.target) : '—');
+  setText('epibt-task-pickup', agent ? coordinates(agent.pickup) : '—');
+  setText('epibt-task-delivery', agent ? coordinates(agent.dropoff) : '—');
   setText('epibt-action', actionLabel(agent?.lastAction));
   setText('epibt-priority', agent?.priority == null ? '—' : formatNumber(agent.priority));
   setText('epibt-distance', agent ? formatNumber(agent.distance) : '—');
   setText('epibt-turns', agent ? formatNumber(agent.turns) : '—');
   setText('epibt-waits', agent ? formatNumber(agent.waits) : '—');
   setText('epibt-agent-completed', agent ? formatNumber(agent.completed) : '—');
-
-  const entries = agent?.operation ?? [];
-  operation.replaceChildren(...Array.from({ length: operationLength }, (_, index) => {
-    const action = entries[index];
-    const item = document.createElement('li');
-    item.textContent = action === undefined ? '—' : tr(planActionLabels[action]);
-    if (action !== undefined) {
-      const description = actionLabel(action);
-      item.title = `${ACTION_CODES[action]} · ${description}`;
-      item.setAttribute('aria-label', description);
-    }
-    return item;
-  }));
 
   rows.forEach(({ row, button }, index) => {
     row.toggleAttribute('data-selected', index === selected);
@@ -236,6 +221,15 @@ function fail(message: string): void {
   renderError(message);
 }
 
+function renderPresets(): void {
+  const active = WAREHOUSE_PRESETS.find(({ config: preset }) =>
+    preset.agentCount === config.agentCount && preset.map.length === config.map.length &&
+    preset.map.every((row, index) => row === config.map[index])
+  );
+  presetSelect.replaceChildren(presetSelect.options[0], ...WAREHOUSE_PRESETS.map(({ id, name }) => new Option(tr(name), id)));
+  presetSelect.value = active?.id ?? '';
+}
+
 function start(next: WarehouseConfig, autoplay = false): void {
   worker?.terminate();
   operationLength = requestedLength ?? operationLength;
@@ -250,6 +244,7 @@ function start(next: WarehouseConfig, autoplay = false): void {
   schedule();
   renderError('');
   renderDimensions();
+  renderPresets();
   rebuildFleet();
   const instance = new Worker(new URL('./warehouse.worker.ts', import.meta.url), { type: 'module' });
   worker = instance;
@@ -301,7 +296,7 @@ function showEditor(editing: boolean): void {
   canvas.tabIndex = editing ? 0 : -1;
   document.querySelector('.epibt-app')?.toggleAttribute('data-editing', editing);
   element('epibt-editor').hidden = !editing;
-  for (const id of ['epibt-legend', 'epibt-insights', 'epibt-controls', 'epibt-length-control', 'epibt-open-editor']) {
+  for (const id of ['epibt-legend', 'epibt-insights', 'epibt-controls', 'epibt-length-control', 'epibt-map-actions']) {
     element(id).hidden = editing;
   }
   labelMap();
@@ -332,6 +327,11 @@ editButton.addEventListener('click', () => {
   editor.open(config);
   showEditor(true);
   element('epibt-editor-title').focus({ preventScroll: true });
+});
+
+presetSelect.addEventListener('change', () => {
+  const preset = WAREHOUSE_PRESETS.find(({ id }) => id === presetSelect.value);
+  if (preset && !editor.draft) start(preset.config, true);
 });
 
 playButton.addEventListener('click', () => {
@@ -366,6 +366,7 @@ canvas.addEventListener('pointerdown', (event) => {
 new ResizeObserver(draw).observe(canvas);
 
 window.addEventListener('demo:languagechange', () => {
+  renderPresets();
   renderSnapshot();
   renderError(errorText);
   labelMap();

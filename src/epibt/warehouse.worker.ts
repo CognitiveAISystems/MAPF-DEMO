@@ -23,21 +23,32 @@ const MAX_BATCH_MS = 25;
 let planner: Planner | null = null;
 let config: WarehouseConfig;
 let width = 0;
-let pickups: number[] = [];
-let deliveries: number[] = [];
+let nextPickup: () => number;
+let nextDelivery: () => number;
 let step = 0;
 let completed = 0;
-let nextTask = 0;
-let agents: Array<Agent & { dropoff: number }> = [];
+let agents: Agent[] = [];
 
-function assignTask(agent: Agent & { dropoff: number }): void {
-  const pickupIndex = nextTask % pickups.length;
-  const pickup = pickups[pickupIndex];
-  const deliveryIndex = pickupIndex + Math.floor(nextTask / pickups.length);
-  agent.task = ++nextTask;
-  agent.dropoff = deliveries[deliveryIndex % deliveries.length];
-  agent.stage = agent.cell === pickup ? 'Delivery' : 'Pickup';
-  agent.target = agent.stage === 'Pickup' ? pickup : agent.dropoff;
+function shuffledBayCycle(bays: number[], random: () => number): () => number {
+  const order = [...bays];
+  let index = order.length;
+  return () => {
+    if (index === order.length) {
+      for (let i = order.length - 1; i > 0; i--) {
+        const j = Math.floor(random() * (i + 1));
+        [order[i], order[j]] = [order[j], order[i]];
+      }
+      index = 0;
+    }
+    return order[index++];
+  };
+}
+
+function assignTask(agent: Agent): void {
+  agent.pickup = nextPickup();
+  agent.dropoff = nextDelivery();
+  agent.stage = agent.cell === agent.pickup ? 'Delivery' : 'Pickup';
+  agent.target = agent.stage === 'Pickup' ? agent.pickup : agent.dropoff;
 }
 
 async function loadPlanner(length: OperationLength): Promise<Planner> {
@@ -71,14 +82,20 @@ function publish(operationLength: OperationLength, planningMs: number | null): v
 async function configure(request: WarehouseConfig, length: OperationLength): Promise<void> {
   config = parseWarehouse(request);
   const plan = prepareWarehouse(config);
-  pickups = plan.pickups;
-  deliveries = plan.deliveries;
+  // A fixed seed keeps the task sequence reproducible after a restart.
+  let seed = 1;
+  const random = () => {
+    seed = (seed * 48271) % 0x7fffffff;
+    return seed / 0x7fffffff;
+  };
+  nextPickup = shuffledBayCycle(plan.pickups, random);
+  nextDelivery = shuffledBayCycle(plan.deliveries, random);
   width = config.map[0].length;
   planner = await loadPlanner(length);
   agents = plan.starts.map((cell, index) => {
-    const agent: Agent & { dropoff: number } = {
-      cell, direction: index % 4, target: 0, task: 0, stage: 'Pickup',
-      operation: [], priority: null, completed: 0, distance: 0, turns: 0, waits: 0, dropoff: 0,
+    const agent: Agent = {
+      cell, direction: index % 4, target: 0, pickup: 0, dropoff: 0, stage: 'Pickup',
+      operation: [], priority: null, completed: 0, distance: 0, turns: 0, waits: 0,
     };
     assignTask(agent);
     return agent;
