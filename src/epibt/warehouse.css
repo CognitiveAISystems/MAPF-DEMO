@@ -9,6 +9,7 @@ button { cursor: pointer; }
 button:disabled { opacity: .42; cursor: default; }
 :focus-visible { outline: 2px solid #65dcf4; outline-offset: 2px; }
 .epibt-app { height: 100dvh; display: grid; grid-template-rows: auto minmax(0, 1fr) auto; gap: clamp(8px, 1.45vh, 14px); padding: var(--demo-gutter); background: radial-gradient(ellipse at 38% 35%, #102b3b, #060e19 72%); }
+.epibt-app > .demo-header { grid-template-columns: minmax(0, 1fr) auto; }
 .epibt-panel { border: 1px solid var(--demo-panel-border); border-radius: var(--demo-panel-radius); background: var(--demo-panel-background); }
 .epibt-controls { display: flex; align-items: center; gap: 12px; padding: 11px 16px; }
 .epibt-main { display: grid; grid-template-columns: minmax(0, 1fr) 365px; gap: 14px; min-height: 0; }
