@@ -84,6 +84,13 @@ pnpm preview -- --host 127.0.0.1 --port 4173
 
 The generated `dist/` directory contains only static files and can be served by
 Nginx, Caddy, Cloudflare Pages, S3, or any equivalent static host.
+
+GitHub Pages publishes this repository from the `gh-pages` branch. Build that
+branch's contents with `pnpm build:wasm` and
+`pnpm exec vite build --base /MAPF-DEMO/`. Copy the contents of `dist/` to the
+root of `gh-pages`, keeping the `.nojekyll` file, then commit and push that
+branch to publish the update.
+
 The runtime uses one WASM thread, so it does not require COOP/COEP headers. HTTPS
 is required for WebGPU on non-localhost deployments; the WASM provider remains
 the compatibility fallback.
